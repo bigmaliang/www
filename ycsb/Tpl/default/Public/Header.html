@@ -26,10 +26,12 @@
       </div>
       
       <div id="bd-personal">
-        <ul id="bd-member" class="hide">
-          <li>欢迎 <a href="/admin/admin"><span id="bd-mnick"></span></a></li>
+        <?php if ($username): ?>
+        <ul id="bd-member">
+          <li>欢迎 <span id="bd-mnick"><?php echo $username; ?></span></li>
           <li class="last"><a href="javascript:void(0);" id="userlogout">退出登录</a></li>
         </ul>
+        <?php endif; ?>
         <ul id="bd-guest" class="hide">
           <li class="last"><a href="javascript: void(0);" rel="#bd-login">登录</a></li>
         </ul>

@@ -24,9 +24,10 @@ class IndexAction extends BaseAction
 		
 		$this->paper = $paper;
 		$this->papers = $papers;
-		$this->paperone = $paperone;
-		$this->papertwo = $papertwo;
-		$this->paperthree = $paperthree;
+		$this->papersone = $papersone;
+		$this->paperstwo = $paperstwo;
+		$this->papersthree = $papersthree;
+		
 		$this->display();
     }
 

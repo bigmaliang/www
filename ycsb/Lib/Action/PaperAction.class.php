@@ -22,6 +22,21 @@ class PaperAction extends BaseAction
 		$this->papers = $papers;
 		$this->display();
     }
+    
+    public function info()
+    {
+		$id = $_GET['info'];
+		
+		$paperModel = M('paper');
+		
+		if ($id == 0)
+			$paper = array('title'=> '顶级分类');
+		else
+			$paper = $paperModel->where(array('id' => $id, 'statu'=>0))->find();
+		
+		echo json_encode(array('success'=>'1', 'info'=>$paper));
+		exit;
+	}
 
     public function guide()
     {

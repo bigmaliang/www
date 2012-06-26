@@ -3,8 +3,8 @@
   <ul class="paper-list">
     <?php foreach($papersone as $p): ?>
     <li>
-      <span class="title"><a title="<?php echo $p[title] ?>" href="/paper?id=<?php echo $p[id] ?>"><?php $p[title] ?></a></span>
-      <span class="intime"><?php echo $p[inday] ?></span>
+      <span class="title"><a title="<?php echo $p[title] ?>" href="/paper/Index/<?php echo $p[id] ?>"><?php echo $p[title] ?></a></span>
+      <span class="intime"><?php echo $p[uptime] ?></span>
     </li>
     <?php endforeach; ?>
   </ul>
@@ -13,10 +13,10 @@
 <div class="fleft w280 ml2">
   <h3 class="group-title">商标注册</h3>
   <ul class="paper-list">
-    <?php foreach($papersone as $p): ?>
+    <?php foreach($paperstwo as $p): ?>
     <li>
-      <span class="title"><a title="<?php echo $p[title] ?>" href="/paper?id=<?php echo $p[id] ?>"><?php $p[title] ?></a></span>
-      <span class="intime"><?php echo $p[inday] ?></span>
+      <span class="title"><a title="<?php echo $p[title] ?>" href="/paper/Index/<?php echo $p[id] ?>"><?php echo $p[title] ?></a></span>
+      <span class="intime"><?php echo $p[uptime] ?></span>
     </li>
     <?php endforeach; ?>
   </ul>
@@ -25,10 +25,10 @@
 <div class="fleft w280 ml2">
   <h3 class="group-title">法律法规</h3>
   <ul class="paper-list">
-    <?php foreach($papersone as $p): ?>
+    <?php foreach($papersthree as $p): ?>
     <li>
-      <span class="title"><a title="<?php echo $p[title] ?>" href="/paper?id=<?php echo $p[id] ?>"><?php $p[title] ?></a></span>
-      <span class="intime"><?php echo $p[inday] ?></span>
+      <span class="title"><a title="<?php echo $p[title] ?>" href="/paper/Index/<?php echo $p[id] ?>"><?php echo $p[title] ?></a></span>
+      <span class="intime"><?php echo $p[uptime] ?></span>
     </li>
     <?php endforeach; ?>
   </ul>

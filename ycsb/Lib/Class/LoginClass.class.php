@@ -24,7 +24,7 @@ class LoginClass
 	function __construct()
 	{
         global $db;
-        $this->account = new UserModel('User');
+        $this->account = M('member');
 		if (isset($_SESSION[$this->keepUserId]))
 		{
 			$this->userID = $_SESSION[$this->keepUserId];
@@ -48,8 +48,8 @@ class LoginClass
 	{
 		$this->username = ereg_replace("[^0-9a-zA-Z_@\!\.-]","",$username);
 		$this->password = ereg_replace("[^0-9a-zA-Z_@\!\.-]","",$password);
-        $this->password = md5($this->password);
-        $result = $this->account->where(array('username'=>$this->username, 'password'=>$this->password))->limit(1)->find();
+        //$this->password = md5($this->password);
+        $result = $this->account->where(array('mname'=>$this->username, 'msn'=>$this->password))->limit(1)->find();
         
 		if (!$result)
 		{
@@ -58,16 +58,19 @@ class LoginClass
 		else
         {
 			$loginip = GetIP();
-			$this->userID    = $result['uid'];
-			$this->groupID   = $result['groupid'];
-			$this->username  = $result['username'];
-            $this->trueName  = $result['nickname'];
+			$this->userID    = $result['mname'];
+			//$this->groupID   = $result['groupid'];
+			$this->groupID   = 1;
+			$this->username  = $result['mname'];
+            $this->trueName  = $result['mname'];
+            /*
             $updateData = array(
                 'lastlogintime' => time(),
                 'loginnum' => $result['loginnum'] + 1,
                 'lastloginip' => $loginip
             );
             $this->account->where(array('uid'=>$result['uid']))->save($updateData);
+            */
 		}
 	}
 

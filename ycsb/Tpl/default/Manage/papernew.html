@@ -1,0 +1,62 @@
+<include file="Public:Header" />
+
+<link rel="stylesheet" type="text/css" href="/Public/style/b/admin/paper/new.css" />
+<script type="text/javascript" src="/Public/script/b/admin/paper/new.js"></script>
+
+<div class="accordion-container">
+  <ul class="accordion">
+    <li class="section">
+      <a class="section-head">文章管理</a>
+      <ul class="expanded section-nav">
+		<li><a href="/Manage/paper">文章列表</a></li>
+		<li><a class="selected" href="/Manage/papernew">添加新文章</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="raw-content">
+  <dl class="op" id="paper-info">
+    <dt>标题 (1 ~ 200 个字)</dt>
+    <dd>
+      <input type="text" name="title" class="title VAL_NEWPAPER vrequire" vmax="256" />*
+    </dd>
+
+    <dt>添加到分类</dt>
+    <dd>
+      <select id="page-class">
+        <!--<option value="0">顶级分类</option>-->
+        <?php foreach($navs as $nav): ?>
+        <option value="<?php echo $nav[pid]?>"><?php echo $nav[title]?></option>
+        <?php endforeach; ?>
+      </select>
+    </dd>
+
+    <dt>关键字</dt>
+    <dd>
+      <input type="text" name="keyword" class="hint VAL_NEWPAPER" vmax="256" />
+    </dd>
+    
+    <dt>描述</dt>
+    <dd>
+      <textarea id="des" name="des" class="des VAL_NEWPAPER"></textarea>
+    </dd>
+    
+    <dt>内容</dt>
+    <dd>
+      <textarea id="content" name="content" draggable="true" class="content VAL_NEWPAPER"></textarea>
+    </dd>
+
+    <dt>&nbsp;</dt>
+    <dd>
+      <input type="button" id="submit" class="btn" value="提交" />
+      <span class="indicator"></span>
+    </dd>
+  </dl>
+  
+</div>
+
+<div class="clearer"></div>
+
+
+<include file="Public:Footer" />

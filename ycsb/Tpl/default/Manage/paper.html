@@ -1,0 +1,57 @@
+<include file="Public:Header" />
+
+<link rel="stylesheet" type="text/css" href="/Public/style/b/admin/paper/paper.css" />
+<script type="text/javascript" src="/Public/script/b/admin/paper/paper.js"></script>
+
+<div class="accordion-container">
+  <ul class="accordion">
+    <li class="section">
+      <a class="section-head">文章管理</a>
+      <ul class="expanded section-nav">
+		<li><a class="selected" href="/Manage/paper">文章列表</a></li>
+		<li><a href="/Manage/papernew">添加新文章</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="raw-content">
+  <?php if ($papers): ?>
+  <table class="list tablesorter" id="paper-list">
+    <thead>
+      <tr>
+        <th>标题</th>
+        <th>所属分类</th>
+        <th>修改时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <?php foreach ($papers as $p): ?>
+    <tr>
+      <td><a target="_blank" href="/paper/Index/<?php echo $p[id] ?>"><?php echo $p[title] ?></a></td>
+      <td class="pids" id="pid-<?php echo $p[id] ?>" relid="<?php echo $p[id] ?>" relpid="<?php echo $p[pid] ?>"></td>
+      <td><?php echo $p[uptime] ?></td>
+      <td>
+        <a href="/Manage/paperedit/<?php echo $p[id] ?>" title="编辑">
+        修改 | 
+        </a>
+
+        <a href="javascript:void(0);" class="del" title="删除文章" rel="<?php echo $p[id] ?>">
+          删除
+        </a>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+    </tbody>
+  </table>
+  <?php else: ?>
+  <p class="page-hint">您还没有任何文章。<a class="btn" href="/Manage/papernew">去添加文章</a></p>
+  <?php endif; ?>
+</div>
+
+<div id="paper-nav" class="page-nav"></div>
+
+
+<include file="Public:Footer" />

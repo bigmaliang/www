@@ -1,0 +1,62 @@
+<include file="Public:Header" />
+
+<link rel="stylesheet" type="text/css" href="/Public/style/b/admin/paper/edit.css" />
+<script type="text/javascript" src="/Public/script/b/admin/paper/edit.js"></script>
+
+<div class="accordion-container">
+  <ul class="accordion">
+    <li class="section">
+      <a class="section-head">文章管理</a>
+      <ul class="expanded section-nav">
+		<li><a class="selected" href="/Manage/paper">文章列表</a></li>
+		<li><a href="/Manage/papernew">添加新文章</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="raw-content">
+  <dl class="op" id="paper-info">
+    <dt>标题 (1 ~ 200 个字)</dt>
+    <dd>
+      <input type="text" name="title" class="title VAL_NEWPAPER vrequire" vmax="256"
+             value="<?php echo $paper[title] ?>" />*
+    </dd>
+
+    <dt>关键字</dt>
+    <dd>
+      <input type="text" name="keyword" class="hint VAL_NEWPAPER" vmax="256"
+             value="<?php echo $paper[keyword] ?>" />
+    </dd>
+    
+    <dt>描述</dt>
+    <dd>
+      <textarea id="des" name="des" class="des VAL_NEWPAPER"><?php echo $paper[des] ?></textarea>
+    </dd>
+    
+    <dt>内容</dt>
+    <dd class="full">
+      <textarea id="content" name="content" draggable="true" class="content VAL_NEWPAPER vrequire"><?php echo $paper[content] ?></textarea>
+    </dd>
+
+    <dt>&nbsp;</dt>
+    <dd>
+      <input type="button" id="submit" class="btn" value="确认修改" />
+      <span class="indicator"></span>
+    </dd>
+  </dl>
+  
+</div>
+
+<div class="clearer"></div>
+
+<script>
+  var mgd = mgd || {};
+
+  mgd.paperid = <?php echo $paper[id] ?>
+
+  mgd._done = 1;
+</script>
+
+
+<include file="Public:Footer" />
