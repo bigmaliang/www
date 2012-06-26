@@ -1,0 +1,101 @@
+<include file="Public:Header" />
+		<div class="fl side">
+			<div class="box">
+				<b class="title">热门信息</b>
+				<ul class="txtli">
+					<?php foreach ((array)$r as $key=>$value) : ?>
+					<li>·<a href="/news/info/<?php echo $value['news_id'];?>" title=""><?php echo $value['title'];?></a></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+			<div class="box">
+				<b class="title">招聘信息</b>
+				<ul class="txtli">
+					<?php foreach ((array)$z as $key=>$value) : ?>
+					<li>·<a href="/news/info/<?php echo $value['news_id'];?>" title=""><?php echo $value['title'];?></a></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+
+		<div class="fl list">
+			
+			<div class="nav">※当前位置：<a href="/" title="">首页</a> &gt; <a href="/msg" title="">留言板</a></div>
+			<?php foreach ($list as $key=>$value) : ?>
+			<div class="box_of_list">
+				<div class="lititle"><i class="brt"></i><i class="bcn"></i></div>
+				<div class="is_content">
+					<p class="bigtitle"><a class="write"href="#msg_Write" title="">我要留言</a><b><?php echo $value['name'];?></b><span class="cGray9 ft12">(<?php echo $value['addtime'];?>)</span></p>
+					<div class="message">
+						<p class="wris my"><?php echo $value['content'];?></p>
+						<?php foreach ((array)$value['reply'] as $key=>$value) : ?>
+						<p class="prompt cRed">回复：<?php echo $value['content'];?></p>
+						<?php endforeach;?>	
+					</div>
+				</div>
+				<div class="cardn"><i class="brt"></i><p class="bcn"></p></div>
+			</div>
+			<?php endforeach;?>
+
+			<div class="page">
+				<?php echo $pagelist;?>
+			</div>
+
+			<div class="box_of_list">
+				<div class="lititle"><i class="brt"></i><i class="bcn"></i></div>
+				<div class="is_content">
+					<h1 class="bigtitle">写留言<a name="msg_Write"></a></h1>
+					<form action="" method="POST" id="myform">
+					<input type="hidden" name="submit" value="1" />
+					<ul class="message">
+						<li>
+							<b>留言主题：</b>
+							<div class="inpbox"><input class="inp" name="data[title]" id="title" type="text" size="50" maxlength="32" /></div>
+						</li>
+						<li>
+							<b>您的姓名：</b>
+							<div class="inpbox"><input class="inp" name="data[name]" id="name" type="text" size="16" maxlength="16" /></div>
+						</li>
+						<li>
+							<b>联系方式：</b>
+							<div class="inpbox"><input class="inp" name="data[email]" id="email" type="text" size="16" maxlength="16" /> <span class="cGray9">(可填联系电话或电子邮箱)</span></div>
+						</li>
+						<li>
+							<b>留言内容：</b>
+							<div class="inpbox"><textarea name="data[content]" id="content" class="cin_area" name="textarea"></textarea></div>
+						</li>
+						<li class="tc"><input id="message" class="btn" type="submit" name="Submit" value="提交留言" /></li>
+					</ul>
+					</form>
+				</div>
+				<div class="cardn"><i class="brt"></i><p class="bcn"></p></div>
+			</div>
+		</div>
+	</div>	
+<script>
+$('#myform').submit(function(){
+	if ($('#title').val() == '') {
+		alert ('主题不能为空');
+		$('#title').focus();
+		return false;
+	}
+	if ($('#name').val() == '') {
+		alert ('姓名不能为空');
+		$('#name').focus();
+		return false;
+	}
+	if ($('#email').val() == '') {
+		alert ('联系方式不能为空');
+		$('#email').focus();
+		return false;
+	}
+	if ($('#content').val() == '') {
+		alert ('内容	不能为空');
+		$('#content').focus();
+		return false;
+	}
+})
+</script>
+</div>
+<div class="wrapperdown"></div>
+<include file="Public:Footer" />

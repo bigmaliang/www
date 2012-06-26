@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>客房管理</title>
+<script type="text/javascript" src="/Public/script/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/Public/script/global.js"></script>
+<script type="text/javascript" src="/Public/script/css.js"></script>
+<link href="/Public/style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/script/xheditor/xheditor-latest.js"></script>
+</head>
+<body id="page">
+<table class="table_form" cellpadding="0" cellspacing="1">
+  <caption>管理信息</caption>
+  <tbody><tr>
+    <td>
+	    <a href="/fangjian">客房管理</a> | 
+	    <a href="/fangjian/add">客房添加</a> | 
+	    <a href="/cate/index/product">分类管理</a> | 
+	    <a href="/cate/add/product"">分类添加</a>
+    </td>
+  </tr>
+</tbody>
+</table>
+<form name="myform" method="post" action="" enctype="multipart/form-data">
+<input type="hidden" name="submit" value="1" />
+<table class="table_form" cellpadding="2" cellspacing="1">
+<caption>客房添加</caption>
+<tbody>
+<tr>
+	<td width="30%"><strong>客房名称：</strong></td>
+	<td><input type="text" name="data[title]" id="title" value="<?php echo $info['title']?>" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>价格：</strong></td>
+	<td><input type="text" name="data[price]" id="price" value="<?php echo $info['price']?>" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>周价格：</strong></td>
+	<td><input type="text" name="data[weekprice]" id="weekprice" value="<?php echo $info['weekprice']?>" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>月价格：</strong></td>
+	<td><input type="text" name="data[moothprice]" id="moothprice" value="<?php echo $info['moothprice']?>" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>房间数量：</strong></td>
+	<td><input type="text" name="data[number]" id="number" value="<?php echo $info['number']?>" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>上传图片：</strong></td>
+	<td>
+		<span id="upload_btn"></span><br />
+		<span class="thephoto">
+		<?php foreach ((array)$imglist as $key=>$value) :?>
+			<table style="float:left" id="imglist-<?php echo $value['id']?>"><tr><td>
+			<p><img src="/upload/cover/<?php echo $value['imgurl'];?>_60.jpg" width="135"  /></p>
+			<p>
+				<input type="text" size="4" value="<?php echo $value['orders'];?>" name="orders[<?php echo $value['id']?>]" />
+				<input type="text" size="8" value="<?php echo $value['name'];?>" name="name[<?php echo $value['id']?>]" />
+				<a href="javascript:" class="del-img" ref="<?php echo $value['id']?>">删除</a>
+			</p>
+			<p><a href="javascript:" class="set-main" title="<?php echo $info['id']?>" rel="<?php echo $value['imgurl']?>">设为主图</a></p>
+			</td></tr></table>
+			<?php endforeach;?>
+		</span>
+	</td>
+</tr>
+<tr>
+	<td width="30%"><strong>所属分类：</strong></td>
+	<td>
+		<select name="data[cate_id]" style="width:200px;">
+			<option value="0">选择分类
+			<?php echo $option;?>
+		</select>
+		 <font color="red">提示：未选择为主分类</font>
+	</td>
+</tr>
+<tr>
+	<td width="30%"><strong>房间介绍：</strong></td>
+	<td>
+		<textarea class="area" id="about" name="data[about]"  style="height:100px;width:300px;"><?php echo $info['about'];?></textarea>
+	</td>
+</tr>
+<tr>
+	<td width="30%"><strong>详细信息：</strong></td>
+	<td>
+	<textarea class="area" id="content" name="data[content]"  style="height:400px;width:800px;"><?php echo $info['content'];?></textarea>
+	</td>
+</tr>
+<tr>
+	<td width="30%"></td>
+	<td>
+		<input type="submit" value="提交" class="button_style" />
+	</td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript">var __ssid__ = "<?php echo $session_id;?>";</script>
+<script type="text/javascript" src="/Public/script/swfupload.js"></script>
+<script type="text/javascript" src="/Public/script/swfupload.queue.js"></script>
+<script type="text/javascript" src="/Public/script/upload.js"></script>
+<script>
+$('#content').xheditor({tools:'mfull',skin:'nostyle',layerShadow:6,urlBase:'__APP__',upLinkUrl:"__APP__?module=ajax&action=xhupload",upLinkExt:'jpg,gif,png,jpeg,zip,rar,txt,7z,doc,docx,xls,pdf,ppt,torrent',upImgUrl:'/news/upload',upImgExt:'jpg,jpeg,doc,docx,gif,png,xlsx',upFlashUrl:'__APP__?module=ajax&action=xhupload',html5Upload:false});
+</script>
+</body>
+</html>

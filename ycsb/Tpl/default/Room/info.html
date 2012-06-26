@@ -1,0 +1,120 @@
+<include file="Public:Header" />
+<link href="/Public/style/house_photo.css" type="text/css" rel="stylesheet" />
+<link type="text/css" href="/Public/style/fotorama.css" rel="stylesheet" />
+	<div id="bd" >
+		</div>
+	<div id="innerpg" class="bd-inner">
+		<div class="clearfix  layout-innerpg">
+    		<div class="col-main">
+		<div class="main-wrap">
+			<div class="block first-block block-products-detail">
+				<div class="block-head">
+					<div class="head-inner">
+						<a name="name"></a>
+						<h2 class="title"><?php echo $house['title'];?></h2>
+						<div class="links"><a href="/room">返回公寓客房</a></div>
+					</div>
+				</div>
+				<div class="block-content clearfix">
+					<!--图片幻灯片-->
+					<div class="my-fotorama">
+					<?php foreach ((array)$house_image as $key=>$value) : ?>
+					<a href="/upload/cover/<?php echo $value['imgurl'];?>_630.jpg" title="<?php echo $value['name'];?>">
+						<img src="/upload/cover/<?php echo $value['imgurl'];?>_60.jpg" />
+					</a>
+					<?php endforeach;?>
+					</div>
+					<!--图片幻灯片结束-->
+				</div>
+				<div class="block-foot"><div><div>-</div></div></div>
+			</div>
+			<div class="block block-pro-param">
+				<div class="block-head">
+					<div class="head-inner">
+						<h2 class="title" style="float:left;">房间参数</h2>
+						<a href="/books/Index/<?php echo $house['id'];?>"><img src="/Public/images/info_7.gif" style="float:right;"/></a>
+					</div>
+				</div>
+				<div class="block-content clearfix">
+					<ul class="clearfix pro-param-list">
+						<li>价格：<strong class="orange">￥<span class="larger"><?php echo $house['price'];?>元/天</span></strong></li>
+						<li>周价格：<strong class="orange">￥<span class="larger"><?php echo $house['weekprice'];?>元/天</span></strong></li>
+						<li>月价格：<strong class="orange">￥<span class="larger"><?php echo $house['moothprice'];?>元/天</span></strong></li>
+						<li>房间数量：<span class="green"><?php echo $house['number'];?>间</span></li>
+					</ul>
+				</div>
+				<div class="block-foot"><div><div>-</div></div></div>
+				<div class="block-head">
+					<div class="head-inner">
+						<h2 class="title">房间介绍</h2>
+					</div>
+				</div>
+				<div class="block-content clearfix">
+					<?php echo $house['about'];?>
+				</div>
+				<div class="block-foot"><div><div>-</div></div></div>
+			</div>
+			<div class="block">
+				<div class="block-head">
+					<div class="head-inner">
+						<h2 class="title">详细信息</h2>
+					</div>
+				</div>
+				<div class="block-content clearfix">
+					<div class="content-text">
+						<?php echo $house['content'];?>
+					</div>
+				</div>
+				<div class="block-foot"><div><div>-</div></div></div>
+			</div>
+			<div id="block-comments" class="block block-comments" rel="products">
+				<div class="block-content clearfix"></div>
+				<div class="block-foot"><div><div>-</div></div></div>
+			</div>
+					</div>
+		</div>
+
+		<div class="col-sub">
+			<div class="block first-block block-products" id="block-products-35687" rel="35687">
+    <div class="block-head">
+	    <div class="head-inner">
+	    	<h2 class="title">房间分类</h2>
+	    	<div class="links"></div>	    
+	    </div>
+    </div>
+    <div class="block-content clearfix">
+    	<div class="item-list">
+	    	<ul class="clearfix">
+	    	<?php foreach ((array)$catelist as $key=>$value) : ?>
+	    		<li><a title="<?php echo $value['cate_name'];?>" href="/room/Index/<?php echo $value['cate_id'];?>"><?php echo $value['cate_name'];?></a></li>
+	    	<?php endforeach;?>
+	    	</ul>
+    	</div>
+    </div>
+    <div class="block-head">
+	    <div class="head-inner">
+	    	<h2 class="title">联系我们</h2>
+	    </div>
+    </div>
+    <div class="block-content clearfix">
+    	<div class="item-list">
+	    	<p style="height:30px;">联系电话：0731-82088887</p>
+	    	<p style="height:30px;">传 　 真：0731-85322998</p>
+	    	<p style="height:30px;">手机：13549665571</p>
+	    	<p style="height:30px;">QQ：1907393675</p>
+	    	<p style="height:30px;">电子邮箱： xsqinqinwojia@sina.com</p>
+	    	<p>账号：建行 6227 0029 2212 0007 394 肖祖亮</p>
+    	</div>
+    </div>       
+    <div class="block-foot"><div><div>-</div></div></div>
+ </div><div class="block last-block block-products" id="block-products-35689" rel="35689">
+    <div class="block-foot"><div><div>-</div></div></div>
+ </div>		</div>	
+	</div>
+	</div>
+	</div>
+	<div id="ft">
+	<div class="ft-inner">
+<script type="text/javascript" src="/Public/script/jquery.min.js" ></script>
+<script type="text/javascript" src="/Public/script/fotorama.js" ></script> 
+<include file="Public:Footer" />

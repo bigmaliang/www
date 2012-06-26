@@ -1,0 +1,68 @@
+<include file="Public:Header" />
+	<div id="bd" >
+	</div>
+	<div id="innerpg" class="bd-inner">
+		<div class="clearfix  layout-innerpg">
+<style>
+<!--
+	.pages2 {height:30px;list-style-type:none;margin-left:20px;}
+	.pages2 li {width:30px;text-align:center;float:left;}
+	.pages2 li.bgcolor {background:#CCC;color:white;}
+-->
+</style>
+		<div class="col-main">
+		<div class="main-wrap">
+
+			<div class="block first-block block-article-view">
+				<div class="block-head">
+					<div class="head-inner">
+						<h2 class="title"><?php echo $cate['cate_name'];?></h2>
+						<div class="links"><a href="/news">返回列表</a></div>
+					</div>
+				</div>
+				<div class="block-content clearfix">
+					<div class="article-head">
+						<h1 class="title"><?php echo $info['title'];?></h1>
+						<div class="meta">
+							<span class="item">分类：<?php echo $cate['cate_name'];?></span>
+							<span class="item">发布：<span class="grey"><?php echo $info['addtime'];?></span></span>
+						</div>
+					</div>
+					<div class="article-content clearfix" >
+					<?php echo $info['content'];?>
+						</div>
+					<div class="pages2"></div>
+				</div>
+				<div class="block-foot"><div><div>-</div></div></div>
+			</div>
+						<div id="block-comments" class="block block-comments" rel="articles">
+				
+				
+				<div class="block-foot"><div><div>-</div></div></div>
+			</div>
+					</div>
+		</div>
+		<div class="col-sub">
+			<div class="block first-block block-articles" id="block-articles-35682" rel="35682">
+    <div class="block-head"><div class="head-inner"><h2 class="title">网站新闻</h2><div class="links"></div>    </div></div>
+    <div class="block-content clearfix">
+    	<ul class="menu-list clearfix">
+    	<?php foreach ((array)$catelist as $key=>$value) : ?>
+    	<li><a title="<?php echo $value['cate_name']?>" href="/news/Index/<?php echo $value['cate_id']?>"><?php echo $value['cate_name']?></a></li>
+    	<?php endforeach;?>
+    	
+    	</ul>
+    </div>
+    <div class="block-foot"><div><div>-</div></div></div>
+ </div><div class="block last-block block-articles" id="block-articles-35688" rel="35688">
+    
+ 
+    <div class="block-foot"><div><div>-</div></div></div>
+ </div>		</div>	
+	</div>
+	</div>
+	</div>
+	<div id="ft">
+	<div class="ft-inner">
+
+<include file="Public:Footer" />

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户添加</title>
+<script type="text/javascript" src="/Public/script/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/Public/script/global.js"></script>
+<script type="text/javascript" src="/Public/script/css.js"></script>
+<link href="/Public/style/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="page">
+<table class="table_form" cellpadding="0" cellspacing="1">
+  <caption>管理信息</caption>
+  <tbody><tr>
+    <td>
+	    <a href="/user/index">用户管理</a> | 
+	    <a href="/user/add">添加用户</a> | 
+	    <a href="/group">用户组管理</a> | 
+	    <a href="/group/add">用户组添加</a>
+    </td>
+  </tr>
+</tbody></table>
+<form name="myform" method="post" action="" onsubmit="return checkSubmit()">
+<input type="hidden" name="submit" value="1" />
+<table class="table_form" cellpadding="2" cellspacing="1">
+<caption>用户添加</caption>
+<tbody>
+<tr>
+	<td width="30%"><strong>用户名：</strong></td>
+	<td><input type="text" name="data[username]" id="username" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>真实姓名：</strong></td>
+	<td><input type="text" name="data[nickname]" id="nickname" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>密　　码：</strong></td>
+	<td><input type="password" name="password" id="password" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>重复一次：</strong></td>
+	<td><input type="password" name="repwd" id="repwd" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>选择用户组：</strong></td>
+	<td>
+		<select name="data[groupid]" id="groupid">
+			<?php foreach ((array)$group as $key=>$value) { ?>
+			<option value="<?php echo $value['group_id'];?>"><?php echo $value['groupname'];?>
+			<?php } ?>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td width="30%"></td>
+	<td>
+		<input type="submit" value="提交" class="button_style" />
+	</td>
+</tr>
+</tbody>
+</table>
+<script language="javascript">
+function checkSubmit()
+{
+    if ($('#username').val() == '')
+    {
+		alert ('用户名不能为空！');return false;
+    }
+    if ($('#nickname').val() == '')
+    {
+		alert ('真实姓名不能为空！');return false;
+    } 
+    if ($('#password').val() == '')
+    {
+		alert ('密码不能为空！');return false;
+    }
+    else
+    {
+    	if ($('#password').val() != $('#repwd').val())	
+	    {
+			alert ('前后输入的密码不一致！');return false;
+	    }
+    }
+}
+</script>
+</body>
+</html>

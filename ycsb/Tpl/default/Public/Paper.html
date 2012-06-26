@@ -1,0 +1,17 @@
+<div class="fright w640">
+  <h2 class="title"><?php echo $paper[title]; ?></h2>
+
+  <div id="paper-content"><?php echo Markdown($paper[content]); ?></div>
+
+  <?php if ($papers[0]): ?>
+  <ul class="paper-list">
+    <?php foreach($papers as $p): ?>
+    <li class="clearfix">
+      <span class="title"><a href="/paper/Index/<?php echo $p[id] ?>"><?php echo $p[title] ?></a></span>
+      <span class="intime"><?php echo $p[uptime] ?></span>
+    </li>
+    <?php endforeach; ?>
+  </ul>
+  <div id="paper-nav" class="page-nav"></div>
+  <?php endif; ?>
+</div>

@@ -1,0 +1,11 @@
+#
+# robots.txt for wanhe
+#
+User-agent: * 
+Disallow: /Common
+Disallow: /Conf
+Disallow: /Framework
+Disallow: /Lib
+Disallow: /Runtime
+Disallow: /admin.php
+Disallow: /config.inc.php

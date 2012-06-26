@@ -1,0 +1,71 @@
+<include file="Public:Header" />
+	<div id="bd" >
+		</div>
+	<div id="innerpg" class="bd-inner">
+		<div class="clearfix  layout-innerpg">
+    	<div class="col-main">
+		<div class="main-wrap">
+						<div class="block first-block">
+				<div class="block-head">
+					<div class="head-inner">
+						<h2 class="title">
+						<?php if ($cate) echo $cate['cate_name']; else echo '公寓动态' ?>
+						</h2>
+					</div>
+				</div>
+				<div class="block-content clearfix">
+					<div class="list-table">
+						<table class="data">
+						<tbody>
+						<?php foreach ((array)$list as $key=>$value) : ?>
+						<tr>
+							<td class="title"><span class="catalog">[ <a href="/news/Index/<?php echo $value['cate_id'];?>" title="<?php echo $value['catename'];?>"><?php echo $value['catename'];?></a> ]</span> <a href="/news/info/<?php echo $value['news_id'];?>" target="_blank" title="<?php echo $value['title'];?>"><span class="green"><?php echo $value['title'];?></span></a></td>
+							<td><?php echo $value['addtime'];?></td>
+						</tr>
+						<?php endforeach;?>
+						</tbody>
+					</table>
+										</div>
+									</div>
+				<div class="block-foot"><div><div>-</div></div></div>
+			</div>
+			
+		</div>
+		</div>
+		<div class="col-sub">
+			<div class="block first-block block-articles" id="block-articles-35682" rel="35682">
+    <div class="block-head"><div class="head-inner"><h2 class="title">网站新闻</h2><div class="links"></div>    </div></div>
+    <div class="block-content clearfix">
+    	<ul class="menu-list clearfix">
+    	<?php foreach ((array)$catelist as $key=>$value) : ?>
+    	<li><a title="<?php echo $value['cate_name'];?>" href="/news/Index/<?php echo $value['cate_id'];?>"><?php echo $value['cate_name'];?></a></li>
+    	<?php endforeach;?>
+    	
+    	</ul>
+    </div>
+    <div class="block-foot"><div><div>-</div></div></div>
+ </div><div class="block last-block block-articles" id="block-articles-35688" rel="35688">
+    <div class="block-head">
+	    <div class="head-inner">
+	    	<h2 class="title">最新文章</h2>
+	    	<div class="links"></div>	    
+	    	</div>
+    </div>
+    <div class="block-content clearfix">
+    	<div class="item-list">
+	    	<ul class="clearfix">
+	    	<?php foreach ((array)$list as $key=>$value) : ?>
+	    	<li><a title="<?php echo $value['title'];?>" href="/news/info/<?php echo $value['news_id'];?>"><?php echo $value['title'];?></a></li>
+	    	<?php endforeach;?>
+	    	</ul>
+    	</div>
+    </div>
+    <div class="block-foot"><div><div>-</div></div></div>
+ </div>		</div>	
+	</div>
+	</div>
+	</div>
+	<div id="ft">
+	<div class="ft-inner">
+
+<include file="Public:Footer" />

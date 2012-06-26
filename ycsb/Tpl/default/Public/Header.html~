@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+
+    <title>义昌商标</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/b/base.css" />
+
+    <script type="text/javascript" src="/js/b/base.js"></script>
+  </head>
+
+  <body>
+    <div id="bd-top">
+      <div id="bd-logo">
+        <a href="http://www.hnycsb.com/index?_tab=0&id=1"><img
+        src="/img/site/logo.gif" alt="hnycsb" width="260" height="50" /></a>
+      </div>
+      
+      <div id="bd-personal">
+        <ul id="bd-member" class="hide">
+          <li>欢迎 <a href="/admin/admin"><span id="bd-mnick"></span></a></li>
+          <li class="last"><a href="javascript:void(0);" id="userlogout">退出登录</a></li>
+        </ul>
+        <ul id="bd-guest" class="hide">
+          <li class="last"><a href="javascript: void(0);" rel="#bd-login">登录</a></li>
+        </ul>
+      </div>
+
+      <div class="clearer"></div>
+      <ul id="bd-nav">
+        <?php
+          foreach($Layout[tabs] as $tab):
+           echo "<li><a class=" . $tab["class"] . " href=" . $tab[href] . ">" .$tab[name] . "</a></li>";
+          endforeach;
+        ?>
+      </ul>
+
+      <div class="clearer"></div>
+      
+      <div class="slideshow">
+        <img src="/img/site/1.jpg" height="260" width="960" alt="1" />
+        <img src="/img/site/2.jpg" height="260" width="960" alt="2" />
+        <img src="/img/site/3.jpg" height="260" width="960" alt="3" />
+      </div>
+
+      <div class="clearer"></div>
+      
+    </div>
+

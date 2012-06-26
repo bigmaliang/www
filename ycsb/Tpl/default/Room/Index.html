@@ -1,0 +1,75 @@
+<include file="Public:Header" />
+	<div id="bd" >
+		</div>
+	<div id="innerpg" class="bd-inner">
+		<div class="clearfix  layout-innerpg">
+    		<div class="col-main">
+		<div class="main-wrap">
+						<div class="block first-block">
+				<div class="block-head">
+					<div class="head-inner">
+						<h2 class="title">
+						<?php if ($cate) echo $cate['cate_name']; else echo '公寓客房';?>
+						</h2>
+					</div>
+				</div>
+				<div class="block-content clearfix">
+					<ul class="clearfix list-gallery">
+						<?php foreach ((array)$list as $key=>$value) : ?>
+						<li>
+							<div class="thumb">
+							<a href="/room/info/<?php echo $value['id'] ;?>#name" title="<?php echo $value['title'] ;?>"><img src="/upload/cover/<?php echo $value['imgurl'] ;?>_126.jpg" alt="<?php echo $value['title'] ;?>" /></a>
+							</div>
+							<div class="des">
+								<p class="default"><a href="/room/info/<?php echo $value['id'] ;?>#name" title="<?php echo $value['title'] ;?>"><?php echo $value['title'];?></a></p>
+							</div>
+						</li>
+						<?php endforeach;?>
+					</ul>
+				</div>
+				<div class="block-foot"><div><div>-</div></div></div>
+			</div>
+		</div>
+		</div>
+		<div class="col-sub">
+			<div class="block first-block block-products" id="block-products-35687" rel="35687">
+    <div class="block-head">
+	    <div class="head-inner">
+	    	<h2 class="title">产品分类</h2>
+	    </div>
+    </div>
+    <div class="block-content clearfix">
+    	<div class="item-list">
+	    	<ul class="clearfix">
+	    	<?php foreach ((array)$catelist as $key=>$value) : ?>
+	    		<li><a title="<?php echo $value['cate_name'];?>" href="/room/Index/<?php echo $value['cate_id'];?>"><?php echo $value['cate_name'];?></a></li>
+	    		<?php endforeach;?>
+	    	</ul>
+    	</div>
+    </div>
+    <div class="block-head">
+	    <div class="head-inner">
+	    	<h2 class="title">联系我们</h2>
+	    </div>
+    </div>
+    <div class="block-content clearfix">
+    	<div class="item-list">
+	    	<p style="height:30px;">联系电话：0731-82088887</p>
+	    	<p style="height:30px;">传 　 真：0731-85322998</p>
+	    	<p style="height:30px;">手机：13549665571</p>
+	    	<p style="height:30px;">QQ：1907393675</p>
+	    	<p style="height:30px;">电子邮箱： xsqinqinwojia@sina.com</p>
+	    	<p>账号：建行 6227 0029 2212 0007 394 肖祖亮</p>
+    	</div>
+    </div>    
+    <div class="block-foot"><div><div>-</div></div></div>
+ </div><div class="block last-block block-products" id="block-products-35689" rel="35689">
+    <div class="block-foot"><div><div>-</div></div></div>
+ </div>		</div>	
+	</div>
+	</div>
+	</div>
+	<div id="ft">
+	<div class="ft-inner">
+
+<include file="Public:Footer" />

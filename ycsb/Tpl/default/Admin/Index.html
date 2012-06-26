@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理系统</title>
+<link href="/Public/style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/script/tree.js"></script>
+<script type="text/javascript" src="/Public/script/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/Public/script/jquery.cookie.js"></script>
+</head>
+<body id="index">
+<h1>后台管理</h1>
+<div id="userInfo">
+  你好<?php echo $userinfo['truename']?>，今天是<?php echo date('Y年m月d日',time())?>&nbsp;&nbsp;<a href="/" target="_blank">首页</a>&nbsp;&nbsp;<a href="javascript:" onclick="loadHtml('/admin/guide')">控制面版</a>&nbsp;&nbsp;<a href="/admin/logout">退出系统</a>
+</div>
+<div id="globalNav">
+	<h2>管理菜单</h2>
+    <?php echo $leftMenu;?>
+</div>
+<iframe id="frameBord" name="frameBord" id="frameBord" frameborder="0" src="/admin/guide" style="height:99%;width:100%;z-index:111;background-color:#ffffff"></iframe>
+<script language="javascript">
+if($.cookie('menuId'))
+{
+	document.getElementById($.cookie('menuId')).style.display = 'block';
+}
+if ($.cookie('menuLink'))
+{
+  document.getElementById('frameBord').src = $.cookie('menuLink');
+}
+</script>
+</body>
+</html>

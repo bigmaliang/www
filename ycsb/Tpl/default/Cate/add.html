@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>分类添加</title>
+<script type="text/javascript" src="/Public/script/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/Public/script/global.js"></script>
+<script type="text/javascript" src="/Public/script/css.js"></script>
+<link href="/Public/style/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="page">
+<table class="table_form" cellpadding="0" cellspacing="1">
+  <caption>管理信息</caption>
+  <tbody><tr>
+    <td>
+	    <a href="/cate/index/<?php echo $type;?>">分类管理</a> | 
+	    <a href="/cate/add/<?php echo $type;?>">分类添加</a>
+    </td>
+  </tr>
+</tbody></table>
+<form name="myform" id="myform" method="post" action="" onsubmit="return checkSubmit()">
+<input type="hidden" name="submit" value="1" />
+<table class="table_form" cellpadding="2" cellspacing="1">
+<caption>分类添加</caption>
+<tbody>
+<tr>
+	<td width="30%"><strong>分类名称：</strong></td>
+	<td>
+		<select name="data[cup]" style="width:200px;">
+			<option value="0">选择分类
+			<?php echo $option;?>
+		</select>
+		 <font color="red">提示：未选择为主分类</font>
+	</td>
+</tr>
+<tr>
+	<td width="30%"><strong>选择分类</strong></td>
+	<td><input type="text" name="data[cate_name]" id="cate_name" /></td>
+</tr>
+<tr>
+	<td width="30%"><strong>是否显示</strong></td>
+	<td>
+		<input type="radio" name="data[is_hidden]" value="1" checked/> 是
+		<input type="radio" name="data[is_hidden]" value="0" /> 否
+	</td>
+</tr>
+<tr>
+	<td width="30%"></td>
+	<td>
+		<input type="submit" value="提交" class="button_style" />
+	</td>
+</tr>
+</tbody>
+</table>
+<script language="javascript">
+$('#myform').submit(function(){
+	if ($('#type').val() == '0') {
+		alert ('请选择所属分类');$('#type').focus();return false;
+	}
+	if ($('#cate_name').val() == '') {
+		alert ('分类名称不能为空');$('#cate_name').focus();return false;
+	}
+})
+</script>
+</body>
+</html>

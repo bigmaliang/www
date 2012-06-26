@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理界面</title>
+<script type="text/javascript" src="/Public/script/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/Public/script/global.js"></script>
+<script type="text/javascript" src="/Public/script/css.js"></script>
+<link href="/Public/style/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="page">
+<table class="table_form" cellpadding="0" cellspacing="1">
+  <caption>管理信息</caption>
+  <tbody><tr>
+    <td>
+	    <a href="/user/index">用户管理</a> | 
+	    <a href="/user/add">添加用户</a> | 
+	    <a href="/group">用户组管理</a> | 
+	    <a href="/group/add">用户组添加</a>
+    </td>
+  </tr>
+</tbody>
+</table>
+<table class="table_list" cellpadding="0" cellspacing="1">
+  <caption>后台用户管理</caption>
+<tbody>
+<tr>
+	<td><b>用户ID</b></td>
+	<td><b>用户名</b></td>
+	<td><b>真实姓名</b></td>
+	<td><b>所在用户组</b></td>
+	<td><b>创建时间</b></td>
+	<td><b>操作</b></td>
+</tr>
+<?php foreach ((array)$list as $key=>$value) { ?>
+<tr>
+	<td><?php echo $value['uid']?></td>
+	<td><?php echo $value['username']?></td>
+	<td><?php echo $value['nickname']?></td>
+	<td><?php echo $value['groupname']?></td>
+	<td><?php echo date('Y-m-d H:i:s', $value['created'])?></td>
+	<td><a href="/user/edit/<?php echo $value['uid']?>">编辑</a> | <a href="/user/delete/<?php echo $value['uid']?>" onclick="return DelConfirm()">删除</a></td>
+</tr>
+<?php } ?>
+</tbody>
+</table>
+<div id="pages">
+	<?php echo $data['pages'];?>
+</div>
+</body>
+</html>
