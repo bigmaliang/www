@@ -1,0 +1,30 @@
+#bd-content h2.title {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #C8C2B7;
+}
+
+#bd-content h3.group-title {
+    background: url("/img/bg/olivegreenda.gif") repeat-x scroll left top transparent;
+    border-bottom: 1px solid #2A6541;
+    border-top: 1px solid #5B876C;
+    color: #FFFFFF;
+    padding: 7px;
+}
+
+.paper-list li {
+    margin: 1em 1em 0;
+    border-bottom: 1px solid #E0D8CE;
+}
+
+.paper-list span.intime {
+    float: right;
+}
+
+#paper-content p {
+    text-indent: 2em;
+    line-height: 180%;
+}
+
+.service-list li {
+    margin: 1em 1em 0;
+}

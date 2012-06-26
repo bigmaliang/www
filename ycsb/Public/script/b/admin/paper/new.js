@@ -1443,8 +1443,8 @@ bmoon.admpapernew = {
 
         o.e_submit.click(o.savePaper);
 
-        o.e_page_class.focus(o.inTip);
-        o.e_page_class.blur(bmoon.admin.outTip);
+        //o.e_page_class.focus(o.inTip);
+        //o.e_page_class.blur(bmoon.admin.outTip);
 
         $('input, textarea', o.e_paper_info).change(function() {
             o.e_paper_info.data('_postData')[$(this).attr('name')] = $(this).val();
@@ -1461,11 +1461,12 @@ bmoon.admpapernew = {
         pdata = o.e_paper_info.data('_postData');
 
         pdata._op = 'add';
+        pdata.pid = o.e_page_class.val();
 
         $('.vres', p).remove();
         p.removeClass('success').removeClass('error').addClass('loading');
 
-        $.post('/json/admin/paper', pdata, function(data) {
+        $.post('/Manage/papernewsave', pdata, function(data) {
             p.removeClass('loading');
             if (data.success == 1) {
                 p.addClass('success');

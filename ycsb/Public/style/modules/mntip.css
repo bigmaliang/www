@@ -1,0 +1,10 @@
+.mntip {
+    z-index: 999;
+    background-color: white;
+    padding: 5px;
+}
+
+.mntip li {
+    cursor: pointer;
+    padding: 2px;
+}

@@ -1314,7 +1314,7 @@ bmoon.admpaperedit = {
         $('.vres', p).remove();
         p.removeClass('success').removeClass('error').addClass('loading');
 
-        $.post('/json/admin/paper', pdata, function(data) {
+        $.post('/Manage/papermod', pdata, function(data) {
             p.removeClass('loading');
             if (data.success == 1) {
                 p.addClass('success');

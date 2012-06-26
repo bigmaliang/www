@@ -12229,7 +12229,7 @@ bmoon.bull = {
         if (!o.invoov) return;
         
         o.bindClick();
-        o.loginCheck();
+        //o.loginCheck();
         
         o.loginref = bmoon.utl.getQueryString("loginref");
         if (o.loginref) {
@@ -12304,11 +12304,14 @@ bmoon.bull = {
         var mname = o.loginmname.val(),
         msn = o.loginmsn.val();
 
-        $.getJSON("/json/member/login", {mname: mname, msn: msn}, function(data) {
-            if (data.success != 1 || !data.mname) {
+        $.getJSON("/manage/login", {mname: mname, msn: msn}, function(data) {
+            if (data.success != 1) {
                 alert(data.errmsg || "操作失败， 请稍后再试");
                 return;
             }
+            $.cookie('mname', mname, {'path': '/', 'expires': 36500});
+            $.cookie('mname_esc', mname, {'path': '/', 'expires': 36500});
+            $.cookie('mmsn', mname, {'path': '/', 'expires': 36500});
             o.loginCheck();
             o.reloadAfterLogin && setTimeout(function() {location.href = o.loginref || location.href;}, 1000);
         });
@@ -12317,7 +12320,7 @@ bmoon.bull = {
     logout: function() {
         var o = bmoon.bull.init();
         
-        $.getJSON('/json/member/logout');
+        $.getJSON('/Manage/logout');
         
         $.cookie('mname', null, {path: '/', domain: g_site_domain});
         $.cookie('mname_esc', null, {path: '/', domain: g_site_domain});
