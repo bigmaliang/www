@@ -134,13 +134,13 @@ bmoon.bull = {
         o.loginoverlay = $('a[rel="#bd-login"]').overlay({
             mask: '#666', api: true,
             onLoad: function() {
-                $.cookie('mmsn', null, {path: '/', domain: g_site_domain});
+                $.cookie('mmsn', null, {path: '/', domain: g_site_www});
                 o.c_mmsn  = null;
                 if (o.loginmname.val().length <= 0)
                     o.loginmname.focus();
                 else
                     o.loginmsn.focus();
-                o.logincheckID = setInterval(o.loginCheck, 500);
+                //o.logincheckID = setInterval(o.loginCheck, 500);
             },
             onClose: function() {
                 o.logincheckID && clearInterval(o.logincheckID);
@@ -250,13 +250,14 @@ bmoon.bull = {
         
         $.getJSON('/Manage/logout');
         
-        $.cookie('mname', null, {path: '/', domain: g_site_domain});
-        $.cookie('mname_esc', null, {path: '/', domain: g_site_domain});
-        $.cookie('mmsn', null, {path: '/', domain: g_site_domain});
+        $.cookie('mname', null, {path: '/', domain: g_site_www});
+        $.cookie('mname_esc', null, {path: '/', domain: g_site_www});
+        $.cookie('mmsn', null, {path: '/', domain: g_site_www});
         o.c_mname = null;
         o.c_mmsn  = null;
         o.loginmname.val("");
-        o.loginCheck();
+        o.member.addClass('hide');
+        //o.loginCheck();
     },
     
     loginCheck: function() {
