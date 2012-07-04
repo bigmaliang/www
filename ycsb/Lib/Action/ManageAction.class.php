@@ -65,7 +65,13 @@ class ManageAction extends BaseAction
 	{
 		$this->checklogin();
 
-		$data = $_POST;
+		$data = array();
+		
+		$data['title'] = $_POST['title'] ? $_POST['title']: '';
+		$data['keyword'] = $_POST['keyword'] ? $_POST['keyword']: '';
+		$data['des'] = $_POST['des'] ? $_POST['des']: '';
+		$data['content'] = $_POST['content'] ? $_POST['content']: '';
+		$data['pid'] = $_POST['pid'] ? $_POST['pid']: '';
 
 		$paperModel = M('paper');
 		
@@ -98,7 +104,7 @@ class ManageAction extends BaseAction
 		
 		$updateData = array();
 		foreach ($_POST as $key=>$val) {
-			if ($key != 'id')
+			if ($key != 'id' && $key != '_op')
 				$updateData[$key] = $val;
 		}
 		
