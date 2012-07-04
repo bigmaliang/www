@@ -37,6 +37,15 @@ class PaperAction extends BaseAction
 		echo json_encode(array('success'=>'1', 'info'=>$paper));
 		exit;
 	}
+	
+	public function preview()
+	{
+		$s = $_POST['s'];
+		
+		$this->s = $s;
+		
+		$this->display();
+	}
 
     public function guide()
     {
